@@ -35,7 +35,7 @@ public class SupermercadoMain {
 				System.out.println("has terminado la primera parte");
 			default:
 				System.out.println("Error. No existe esa opcion");
-			}
+			} 
 		} while (numMenu >=5 && numMenu <=1);
 	}
 	public static void cambioProducto(TreeSet<String> productoCarrito,TreeSet<String> productoVenta) {
