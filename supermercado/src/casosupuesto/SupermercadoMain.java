@@ -8,17 +8,50 @@ public class SupermercadoMain {
 	public static Scanner src = new Scanner(System.in);
 	public static void main(String[] args) {
 		int numMenu = 0;
+		int numMenu2 = 0;
 		String[]arrayComida = {"tomate","lechuga","patata","leche","aceite",
 				"pan","vino","queso","yogurt","jamón","manzana",
 				"harina","melocoton","arroz","esparragos","lubina","merluza","cacahuetes","zanahoria","huevos"};
 		TreeSet<String> productoVenta = new TreeSet<>();
 		productoVenta.addAll(Arrays.asList(arrayComida));
 		TreeSet<String>productoCarrito = new TreeSet<>();
+		switch (numMenu) {
+		case 1:
+			Personal(productoVenta,productoCarrito,numMenu2);
+		case 2:
+			Cliente(productoVenta,productoCarrito,numMenu2);
+		}
 		
+		
+		
+	}
+	public static void Personal(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2) {
+		do {
+			imprimirMenuPersonal();
+			numMenu2 = src.nextInt();
+			switch(numMenu2) {
+			case 1:
+				System.out.println("Estos son los productos que estan a la venta:" );
+				System.out.println(productoVenta);
+			case 2:
+				
+				productoVenta.add(src.nextLine());
+			case 3:
+				productoVenta.remove(src.nextLine());
+			case 4:
+				consultaCarrito(productoCarrito);
+			case 5:
+				System.out.println("Has terminado la primera parte");
+			default:
+				System.out.println("Error. No existe esa opcion");
+			}
+		} while (numMenu2 >=4 && numMenu2 <=1);
+	}
+	public static void Cliente (TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2) {
 		do {
 			imprimirMenu();
-			numMenu = src.nextInt();
-			switch(numMenu) {
+			numMenu2 = src.nextInt();
+			switch(numMenu2) {
 			case 1:
 				System.out.println("Estos son los productos que estan a la venta:" );
 				System.out.println(productoVenta);
@@ -32,11 +65,20 @@ public class SupermercadoMain {
 			case 5:
 				cambioProducto(productoCarrito,productoVenta);
 			case 6:
-				System.out.println("has terminado la primera parte");
+				System.out.println("Has terminado la primera parte");
 			default:
 				System.out.println("Error. No existe esa opcion");
-			} 
-		} while (numMenu >=5 && numMenu <=1);
+			}
+		} while (numMenu2 >=5 && numMenu2 <=1);
+	}
+	public static void imprimirMenuPersonal() {
+		System.out.println("  ***********MENÚ*******");
+		System.out.println(" ");
+		System.out.println("1. Mostrar productos del supermercado");
+		System.out.println("2. Añadir productos");
+		System.out.println("3. Eliminar producto");
+		System.out.println("4. Modificar producto");
+		System.out.println("5. salir");
 	}
 	public static void cambioProducto(TreeSet<String> productoCarrito,TreeSet<String> productoVenta) {
 		System.out.println("Escribe producto que quieres sustituir  en el carrito");
