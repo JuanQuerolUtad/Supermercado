@@ -9,12 +9,18 @@ public class SupermercadoMainJuanQuerol {
 	public static void main(String[] args) {
 		int numMenu = 0;
 		int numMenu2 = 0;
+		//creo una lista de los productos que estan a la venta.
 		String[]arrayComida = {"tomate","lechuga","patata","leche","aceite",
 				"pan","vino","queso","yogurt","jamón","manzana",
 				"harina","melocoton","arroz","esparragos","lubina","merluza","cacahuetes","zanahoria","huevos"};
 		TreeSet<String> productoVenta = new TreeSet<>();
 		productoVenta.addAll(Arrays.asList(arrayComida));
 		TreeSet<String>productoCarrito = new TreeSet<>();
+		
+		/*creo un menu fucional que cuando escribes  
+		*el numero de la opcion te lleva a la funcion de esa opcion*/
+		
+		//menu persona
 		System.out.println("  ***********MENÚ*******");
 		System.out.println(" ");
 		System.out.println("1. Personal");
@@ -52,6 +58,9 @@ public class SupermercadoMainJuanQuerol {
 	}
 	
 }
+	/*este es el menu que le aparece a un personal de la tienda
+	 * y lo que pueden hacer es modificar  añadir o sar productos
+	 * que estan a la venta y al darle a la opcion salir se termina el programa*/
 	public static void Personal(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2) {
 		
 		numMenu2 = 0;
@@ -76,6 +85,7 @@ public class SupermercadoMainJuanQuerol {
 		} 
 		
 	}
+	//cuando le das a modificar  lo que hace es sacar un producto por otro
 	public static void ModificarProducto(TreeSet<String> productoCarrito,TreeSet<String> productoVenta) {
 		System.out.println("Escribe producto que quires Modificar en el carrito");
 		String ProductoSacado = src.nextLine();
@@ -90,6 +100,9 @@ public class SupermercadoMainJuanQuerol {
 			System.out.println("el producto no esta");
 		}
 	}
+	/*este es el menu que le aparece a un cliente 
+	 * y lo que puede hacer es modificar  ,añadir o sacar productos
+	 * que estan en su carrito y al darle a la opcion salir se termina el programa*/
 	public static void Cliente (TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2) {
 		numMenu2=0;
 		while (numMenu2 >=0 && numMenu2<=5){
@@ -124,6 +137,7 @@ public class SupermercadoMainJuanQuerol {
 		System.out.println("4. Modificar producto");
 		System.out.println("5. salir");
 	}
+	// es lo mismo que modificar producto.
 	public static void cambioProducto(TreeSet<String> productoCarrito,TreeSet<String> productoVenta) {
 		System.out.println("Escribe producto que quieres sustituir  en el carrito");
 		String ProductoCambio = src.nextLine();
@@ -143,6 +157,7 @@ public class SupermercadoMainJuanQuerol {
 			System.out.println("Error. quieres meter un producto que no esta a la venta al carrito");
 		}
 	}
+	//cliente puede consultar si tiene el producto que escribe en el carrito.
 	public static void consultaCarrito(TreeSet<String> productoCarrito) {
 		System.out.println("Ecribe producto que quieras cosultar:");
 		String PalabraConsulta = src.nextLine();
@@ -153,6 +168,7 @@ public class SupermercadoMainJuanQuerol {
 			System.out.println("El producto " + PalabraConsulta + " no está en el carrito");
 		}
 	}
+	//el cliente escribe los productos que quiere meter en el carrito
 	public static void rellenarCarrito( TreeSet<String> productoCarrito, TreeSet<String> productoVenta) {
 		String eleccion = src.nextLine();
 		String arrayEleccion[] = eleccion.split(" ");
