@@ -1,4 +1,4 @@
-package casosupuesto;
+package casosupuestojuanquerol;
 
 import java.util.Arrays;
 import java.util.Scanner;
