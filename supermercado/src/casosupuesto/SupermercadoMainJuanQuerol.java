@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-public class SupermercadoMain {
+public class SupermercadoMainJuanQuerol {
 	public static Scanner src = new Scanner(System.in);
 	public static void main(String[] args) {
 		int numMenu = 0;
