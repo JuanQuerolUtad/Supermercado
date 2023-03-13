@@ -3,13 +3,24 @@ package casosupuestojuanquerol;
 import java.util.ArrayList;
 
 public class Carrito {
-	private Cliente cliente;
+	
 	private ArrayList<Producto> productos;
-	public Carrito(Cliente cliente) {
-		this.cliente = cliente;
+	
+	public void añadirCarrito(String nombre) {
+		Supermercado s1 = new Supermercado();
+		for (int i = 0; i < s1.Tamaño(); i++) {
+			if (s1.getNombreProductos(i).contains(nombre)) {
+				productos.add(new Producto(s1.getProductos(i).getNombre(), s1.getProductos(i).getPrecio(), s1.getProductos(i).getSeccion()));
+			}
+		}
 	}
 	
-	public void setProducto(Producto producto) {
-		productos.add(producto);
+	public double precioTotal() {
+		double precio = 0;
+		for (int i = 0; i < productos.size(); i++) {
+			precio = precio+productos.get(i).getPrecio();
+		}
+		return precio;
+		
 	}
 }

@@ -7,6 +7,8 @@ import java.util.TreeSet;
 public class SupermercadoMainJuanQuerol {
 	public static Scanner src = new Scanner(System.in);
 	public static void main(String[] args) {
+		Supermercado s1 = new Supermercado();
+		
 		int numMenu = 0;
 		int numMenu2 = 0;
 		//creo una lista de los productos que estan a la venta.
@@ -27,7 +29,7 @@ public class SupermercadoMainJuanQuerol {
 		System.out.println("2. Cliente");
 		numMenu = src.nextInt();
 		if (numMenu == 1) {
-			contraseña(productoVenta,productoCarrito,numMenu2);
+			contraseña(productoVenta,productoCarrito,numMenu2, s1);
 		} else if(numMenu==2){
 			Cliente(productoVenta,productoCarrito,numMenu2);
 		}else {
@@ -38,10 +40,10 @@ public class SupermercadoMainJuanQuerol {
 		
 		
 	}
-	public static void contraseña(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2) {
+	public static void contraseña(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2, Supermercado s1) {
 		String clave = "";
 		int cont =0;
-		while(cont != 3 || !clave.equals("J4v4d0n4")) {
+		while(cont != 3 || !clave.equals(s1.getContraseña())) {
 			
 			System.out.println("Escriba la contraseña:");
 			cont++;
@@ -51,8 +53,8 @@ public class SupermercadoMainJuanQuerol {
 			}
 			
 	}
-	if (clave.equals("J4v4d0n4")) {
-		Personal(productoVenta,productoCarrito,numMenu2);	
+	if (clave.equals(s1.getContraseña())) {
+		Personal(productoVenta,productoCarrito,numMenu2,s1);	
 	}else {
 		System.out.println("Error acceso denegado intentelo mas tar");
 	}
@@ -61,7 +63,7 @@ public class SupermercadoMainJuanQuerol {
 	/*este es el menu que le aparece a un personal de la tienda
 	 * y lo que pueden hacer es modificar  añadir o sar productos
 	 * que estan a la venta y al darle a la opcion salir se termina el programa*/
-	public static void Personal(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2) {
+	public static void Personal(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2, Supermercado s1) {
 		
 		numMenu2 = 0;
 		while (numMenu2 <=4 && numMenu2 >=0){
@@ -69,7 +71,7 @@ public class SupermercadoMainJuanQuerol {
 			numMenu2 = src.nextInt();
 			if (numMenu2 ==1) {
 				System.out.println("Estos son los productos que estan a la venta:" );
-				System.out.println(productoVenta);
+				MostrarProducto(s1);
 			}else if(numMenu2==2){
 				productoVenta.add(src.nextLine());
 			}else if(numMenu2==3){
@@ -83,6 +85,15 @@ public class SupermercadoMainJuanQuerol {
 			}
 			
 		} 
+		
+	}
+	public static void MostrarProducto(Supermercado s1){
+			
+			for (int i = 0; i < s1.Tamaño(); i++) {
+				System.out.println("Articulo: " + s1.getProductos(i).getNombre()
+				+"Precio: "+s1.getProductos(i).getPrecio()+"Seccion: "+s1.getProductos(i).getSeccion());
+			}
+			
 		
 	}
 	//cuando le das a modificar  lo que hace es sacar un producto por otro

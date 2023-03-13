@@ -5,6 +5,7 @@ public class Cliente {
 	private String apellidos;
 	private String nombreCompleto;
 	private double saldo;
+	private Carrito carrito;
 	
 	public Cliente(String nombre, String apellidos, String nombreCompleto, double saldo) {
 		super();
@@ -13,7 +14,7 @@ public class Cliente {
 		this.nombreCompleto = nombreCompleto;
 		this.saldo = saldo;
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -31,6 +32,6 @@ public class Cliente {
 	}
 	
 	public void restaSaldo(Producto producto) {
-		this.saldo= this.saldo-producto.getPrecio();
+		this.saldo= this.saldo-carrito.precioTotal();
 	}
 }
