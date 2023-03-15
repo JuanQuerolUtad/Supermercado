@@ -14,6 +14,16 @@ public class Carrito {
 			}
 		}
 	}
+	public boolean consultarProducto (String nombre) {
+		
+		int cont = 0;
+		for (int i = 0; i < productos.size(); i++) {
+			if (nombre.equalsIgnoreCase(productos.get(i).getNombre())) {
+				cont++;
+			}
+		}
+		return cont>0;
+	}
 	
 	public double precioTotal() {
 		double precio = 0;

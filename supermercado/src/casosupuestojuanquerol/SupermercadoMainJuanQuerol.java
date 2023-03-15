@@ -73,11 +73,22 @@ public class SupermercadoMainJuanQuerol {
 				System.out.println("Estos son los productos que estan a la venta:" );
 				MostrarProducto(s1);
 			}else if(numMenu2==2){
-				productoVenta.add(src.nextLine());
-			}else if(numMenu2==3){
-				productoVenta.remove(src.nextLine());
-			}else if(numMenu2==4){
+				System.out.println("Escribe el nombre del productos");
+				String nombre=src.nextLine();
+				System.out.println("Escribe el precio del productos");
+				int precio = src.nextInt();
 				
+				s1.AñadirProducto(nombre, numMenu2, Secciones.FRUTERIA);
+			}else if(numMenu2==3){
+				System.out.println("Escribe el nombre del productos");
+				String nombre=src.nextLine();
+				System.out.println("Escribe el precio del productos");
+				int precio = src.nextInt();
+				s1.ModificarProducto(nombre, precio);
+			}else if(numMenu2==4){
+				System.out.println("Escribe el nombre del productos");
+				String nombre=src.nextLine();
+				s1.EliminarProducto(nombre);
 			}else if(numMenu2==5){
 				System.out.println("Has terminado la primera parte");
 			}else {
@@ -114,14 +125,14 @@ public class SupermercadoMainJuanQuerol {
 	/*este es el menu que le aparece a un cliente 
 	 * y lo que puede hacer es modificar  ,añadir o sacar productos
 	 * que estan en su carrito y al darle a la opcion salir se termina el programa*/
-	public static void Cliente (TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2) {
+	public static void Cliente (TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2, Supermecado s1) {
 		numMenu2=0;
 		while (numMenu2 >=0 && numMenu2<=5){
 			imprimirMenu();
 			numMenu2 = src.nextInt();
 			if (numMenu2==1) {
 				System.out.println("Estos son los productos que estan a la venta:" );
-				System.out.println(productoVenta);
+				MostrarProducto(s1);
 			}else if(numMenu2==2) {
 				rellenarCarrito(productoCarrito,productoVenta);
 			}else if(numMenu2==3) {

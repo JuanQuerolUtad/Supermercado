@@ -42,7 +42,7 @@ public void EliminarProducto(String nombre) {
 		}
 		
 	}
-public void ModificarProducto(String nombre, double precio,Secciones seccion) {
+public void ModificarProducto(String nombre, double precio) {
 		
 	for (int i = 0; i < productos.size(); i++) {
 		if(productos.get(i).getNombre().contains(nombre)) {
