@@ -8,16 +8,11 @@ public class SupermercadoMainJuanQuerol {
 	public static Scanner src = new Scanner(System.in);
 	public static void main(String[] args) {
 		Supermercado s1 = new Supermercado();
-		
+		Carrito miCarrito = new Carrito();
+		Cliente pepe = new Cliente("Pepe", "Gonzalez", "Pepe Gonzalez", 1000.0, miCarrito);
 		int numMenu = 0;
 		int numMenu2 = 0;
 		//creo una lista de los productos que estan a la venta.
-		String[]arrayComida = {"tomate","lechuga","patata","leche","aceite",
-				"pan","vino","queso","yogurt","jamón","manzana",
-				"harina","melocoton","arroz","esparragos","lubina","merluza","cacahuetes","zanahoria","huevos"};
-		TreeSet<String> productoVenta = new TreeSet<>();
-		productoVenta.addAll(Arrays.asList(arrayComida));
-		TreeSet<String>productoCarrito = new TreeSet<>();
 		
 		/*creo un menu fucional que cuando escribes  
 		*el numero de la opcion te lleva a la funcion de esa opcion*/
@@ -29,9 +24,9 @@ public class SupermercadoMainJuanQuerol {
 		System.out.println("2. Cliente");
 		numMenu = src.nextInt();
 		if (numMenu == 1) {
-			contraseña(productoVenta,productoCarrito,numMenu2, s1);
+			contraseña(numMenu2, s1);
 		} else if(numMenu==2){
-			Cliente(productoVenta,productoCarrito,numMenu2);
+			Clientes(numMenu2, s1, pepe);
 		}else {
 			System.out.println("Error");
 		}
@@ -40,7 +35,7 @@ public class SupermercadoMainJuanQuerol {
 		
 		
 	}
-	public static void contraseña(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2, Supermercado s1) {
+	public static void contraseña( int numMenu2, Supermercado s1) {
 		String clave = "";
 		int cont =0;
 		while(cont != 3 || !clave.equals(s1.getContraseña())) {
@@ -54,7 +49,7 @@ public class SupermercadoMainJuanQuerol {
 			
 	}
 	if (clave.equals(s1.getContraseña())) {
-		Personal(productoVenta,productoCarrito,numMenu2,s1);	
+		Personal(numMenu2,s1);	
 	}else {
 		System.out.println("Error acceso denegado intentelo mas tar");
 	}
@@ -63,7 +58,7 @@ public class SupermercadoMainJuanQuerol {
 	/*este es el menu que le aparece a un personal de la tienda
 	 * y lo que pueden hacer es modificar  añadir o sar productos
 	 * que estan a la venta y al darle a la opcion salir se termina el programa*/
-	public static void Personal(TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2, Supermercado s1) {
+	public static void Personal( int numMenu2, Supermercado s1) {
 		
 		numMenu2 = 0;
 		while (numMenu2 <=4 && numMenu2 >=0){
@@ -125,7 +120,7 @@ public class SupermercadoMainJuanQuerol {
 	/*este es el menu que le aparece a un cliente 
 	 * y lo que puede hacer es modificar  ,añadir o sacar productos
 	 * que estan en su carrito y al darle a la opcion salir se termina el programa*/
-	public static void Cliente (TreeSet<String> productoVenta, TreeSet<String> productoCarrito, int numMenu2, Supermecado s1) {
+	public static void Clientes (int numMenu2, Supermercado s1, Cliente pepe) {
 		numMenu2=0;
 		while (numMenu2 >=0 && numMenu2<=5){
 			imprimirMenu();
@@ -191,11 +186,9 @@ public class SupermercadoMainJuanQuerol {
 		}
 	}
 	//el cliente escribe los productos que quiere meter en el carrito
-	public static void rellenarCarrito( TreeSet<String> productoCarrito, TreeSet<String> productoVenta) {
+	public static void rellenarCarrito(Cliente pepe) {
 		String eleccion = src.nextLine();
-		String arrayEleccion[] = eleccion.split(" ");
-		productoCarrito.addAll(Arrays.asList(arrayEleccion));
-		productoCarrito.retainAll(productoCarrito);
+		pepe.getCarrito().añadirCarrito(eleccion);
 	}
 	public static void imprimirMenu() {
 		System.out.println("  ***********MENÚ*******");

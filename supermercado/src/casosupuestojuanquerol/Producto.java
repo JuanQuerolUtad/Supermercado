@@ -4,11 +4,13 @@ public class Producto {
 	private String nombre;
 	private double precio;
 	private Secciones seccion;
+	private int stock;
 	
-	public Producto(String nombre, double precio,Secciones seccion) {
+	public Producto(String nombre, double precio,Secciones seccion, int stock) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.seccion=seccion;
+		this.stock=stock;
 	}
 	
 	

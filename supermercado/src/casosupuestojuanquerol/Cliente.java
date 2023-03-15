@@ -7,14 +7,22 @@ public class Cliente {
 	private double saldo;
 	private Carrito carrito;
 	
-	public Cliente(String nombre, String apellidos, String nombreCompleto, double saldo) {
-		super();
+	public Cliente(String nombre, String apellidos, String nombreCompleto, double saldo, Carrito carrito) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.nombreCompleto = nombreCompleto;
 		this.saldo = saldo;
+		this.carrito=carrito;
 	}
 	
+	public Carrito getCarrito() {
+		return carrito;
+	}
+
+	public void setCarrito(Carrito carrito) {
+		this.carrito = carrito;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
