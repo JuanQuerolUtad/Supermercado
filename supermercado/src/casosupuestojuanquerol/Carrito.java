@@ -10,7 +10,7 @@ public class Carrito {
 		Supermercado s1 = new Supermercado();
 		for (int i = 0; i < s1.Tamaño(); i++) {
 			if (s1.getNombreProductos(i).contains(nombre)) {
-				productos.add(new Producto(s1.getProductos(i).getNombre(), s1.getProductos(i).getPrecio(), s1.getProductos(i).getSeccion()));
+				productos.add(new Producto(s1.getProductos(i).getNombre(), s1.getProductos(i).getPrecio(), s1.getProductos(i).getSeccion(), s1.getProductos(i).getStock()));
 			}
 		}
 	}

@@ -11,6 +11,7 @@ public class Supermercado {
 	
 	
 	
+	
 	public Supermercado() {
 		this.contraseña = "J4v4d0n4";
 		this.productos = productosIniciales();
@@ -57,6 +58,7 @@ public void ModificarProducto(String nombre, double precio) {
 		productos.add(new Producto(nombre, precio, seccion, stock));
 		
 	}
+	
 	public ArrayList<Producto> productosIniciales(){
 		productos=new ArrayList<>();
 		Producto p1 = new Producto("Leche", 3.5, Secciones.LACTEOS, 40);
@@ -68,7 +70,7 @@ public void ModificarProducto(String nombre, double precio) {
 		Producto p7 = new Producto("Lubina", 10, Secciones.PESCADERIA, 66);
 		Producto p8 = new Producto("Pasta de dientes", 2,Secciones.HOGAR, 25);
 		Producto p9 = new Producto("Lavadora", 50, Secciones.HOGAR, 9);
-		Producto p10 = new Producto("Lechuga", 10000, Secciones.FRUTERIA,);
+		Producto p10 = new Producto("Lechuga", 10000, Secciones.FRUTERIA,7);
 		Producto p11 = new Producto("Alitas de pollo", 5, Secciones.CARNICERIA, 30);
 		Producto p12 = new Producto("Naranja", 3.5, Secciones.FRUTERIA, 13);
 		Producto p13 = new Producto("Pulpo", 20, Secciones.PESCADERIA,50);

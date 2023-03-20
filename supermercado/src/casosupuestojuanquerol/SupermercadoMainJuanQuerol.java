@@ -72,8 +72,9 @@ public class SupermercadoMainJuanQuerol {
 				String nombre=src.nextLine();
 				System.out.println("Escribe el precio del productos");
 				int precio = src.nextInt();
-				
-				s1.AñadirProducto(nombre, numMenu2, Secciones.FRUTERIA);
+				System.out.println("Escribe el stock del productos");
+				int stock = src.nextInt();
+				s1.AñadirProducto(nombre, numMenu2, Secciones.FRUTERIA, stock);
 			}else if(numMenu2==3){
 				System.out.println("Escribe el nombre del productos");
 				String nombre=src.nextLine();
@@ -154,42 +155,7 @@ public class SupermercadoMainJuanQuerol {
 		System.out.println("4. Modificar producto");
 		System.out.println("5. salir");
 	}
-	// es lo mismo que modificar producto.
-	public static void cambioProducto(TreeSet<String> productoCarrito,TreeSet<String> productoVenta) {
-		System.out.println("Escribe producto que quieres sustituir  en el carrito");
-		String ProductoCambio = src.nextLine();
-				System.out.println("Escribe producto que quires cambiar en el carrito");
-		String ProductoSacado = src.nextLine();
-		if (productoVenta.contains(ProductoCambio)) {
-			if (productoCarrito.contains(ProductoSacado)) {
-				productoCarrito.remove(ProductoSacado);
-				productoCarrito.add(ProductoCambio);
-				System.out.println("cambio finalizado corectamente.");
-			}
-			else {
-				System.out.println("Error. quieres sacar un producto que no esta en el carrito");
-			}
-		}
-		else {
-			System.out.println("Error. quieres meter un producto que no esta a la venta al carrito");
-		}
-	}
-	//cliente puede consultar si tiene el producto que escribe en el carrito.
-	public static void consultaCarrito(TreeSet<String> productoCarrito) {
-		System.out.println("Ecribe producto que quieras cosultar:");
-		String PalabraConsulta = src.nextLine();
-		if (productoCarrito.contains(PalabraConsulta)) {
-			System.out.println("El producto " + PalabraConsulta + " está en el carrito");
-		}
-		else {
-			System.out.println("El producto " + PalabraConsulta + " no está en el carrito");
-		}
-	}
-	//el cliente escribe los productos que quiere meter en el carrito
-	public static void rellenarCarrito(Cliente pepe) {
-		String eleccion = src.nextLine();
-		pepe.getCarrito().añadirCarrito(eleccion);
-	}
+	
 	public static void imprimirMenu() {
 		System.out.println("  ***********MENÚ*******");
 		System.out.println(" ");

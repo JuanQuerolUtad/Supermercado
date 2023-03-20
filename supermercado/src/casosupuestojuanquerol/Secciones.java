@@ -6,5 +6,6 @@ public enum Secciones {
 	  PESCADERIA,
 	  HOGAR,
 	  BEBIDAS,
-	  LACTEOS
+	  LACTEOS, 
+	  OTROS
 }
